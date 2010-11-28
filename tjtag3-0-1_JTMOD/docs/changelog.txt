@@ -1,0 +1,316 @@
+﻿Please contact me via e-mail tornado@odessaua.com for questions, corrections, and if I accidently left you out of the credits.
+New for V3.0.1
+	BUG FIX - duplicate data written when backing up
+	Change credit names
+
+New for V3
+	-Added 13 new processors
+
+		Broadcom BCM4716 Rev 1 CPU
+		Broadcom BCM5354 KFBG Rev 3 CPU
+		Broadcom BCM3345 KPB Rev 1 CPU
+		Broadcom BCM6358 Rev 1 CPU
+		Broadcom BCM6368 Rev 1 CPU
+		Broadcom BCM4321L RADIO STOP
+ 		XScale IXP42X 266mhz
+		GW234X (IXP42X 266MHz) BE
+    		XScale IXP42X 400mhz,
+    		XScale IXP42X 533mhz
+    		ARM 940T
+    		Marvell Feroceon 88F5181
+    		LX4380
+
+	-Added  25 New flash chip parts
+
+		K8D3216UTC  2Mx16 TopB     (4MB)
+		K8D3216UBC  2Mx16 BotB     (4MB)  
+		Macronix MX25L1605D        (2MB) Serial 
+		Macronix MX25L3205D        (4MB) Serial
+		Macronix MX25L6405D        (8MB) Serial				STMicro M25P16             (2MB) Serial
+		STMicro M25P32             (4MB) Serial
+		STMicro M25P64             (8MB) Serial
+		STMicro M25P128            (16MB) Serial
+		MX29LV640B 4Mx16 TopB      (16MB)
+		MX29LV640B 4Mx16 BotB      (16MB)
+		Spansion S29GL128P U       (16MB)
+		Spansion S29GL128M U       (16MB)
+		Spansion S29GL256P U       (32MB)
+		Spansion S29GL512P U       (64MB)
+		Spansion S29GL01GP U       (128MB)				Spansion S25FL016A         (2MB) Serial
+		Spansion S25FL032A         (4MB) Serial
+		Spansion S25FL064A         (8MB) Serial
+		Winbond W25X32             (4MB) Serial
+		Winbond W25X64             (8MB) Serial
+		EON EN29LV640 4Mx16 TopB   (8MB)
+		EON EN29LV640 4Mx16 BotB   (8MB) 
+		AT49BV322A 2Mx16 BotB      (4MB)
+		AT49BV322A(T) 2Mx16 TopB   (4MB)
+
+Added  switch  /swap_endian 
+		swaps the endian of the  flash data – backup only
+
+Added switch /flash_debug
+		provides debug information when detecting flash chip 
+		manufacturer and device ID
+
+Added new option -probeonly:custom 
+			requires only /window: when probing flash chips
+
+Added preliminary SPI for detection and read/write to serial flash chips
+		Big Thanks, Yoon Lee, Joey Goncalves, and openwrt kernel developers for the SPI code
+ 		and porting the Atheros base SPI to tjtag.
+
+Added preliminary Broadcom SPI code, for detection and read/write on Broadcom based
+ 		processors.
+		Big Thanks to eko@dd-wrt.com, for donating the WGR614v8 and endless
+ 		hours of testing with me, without, we would have no Broadcom SPI.
+
+		Big Thanks to BrainSlayer – DD-WRT.COM for your support
+
+		Big Thanks to Chip for his FON2200 and flash chip definitions and
+ 		testing on the FON 2200
+
+		Also Big Thanks to all the others at DD-WRT for helping me test and
+ 		reporting back, RedHawk, Barryware, and others.
+
+Added options to backup, flash, erase
+		wgrv8bdata,  wgrv9bdata, cfe128
+
+
+NOTES
+SPI has only had limited testing, but has been verified to work on:
+
+Fonera 2200A “Thanks for the donation desigabri”
+DIR-300
+WGR614v8	“Thanks Eko” - 128k CFE
+WGR614v9	128k CFE
+
+All of the above targets require a /swap_endian switch when backing up.
+The WGR's require /noreset “BCM5354 processors” also the WGRV8 and WGRV9 have 128k CFE's. 
+
+There are probably others it will work on as well, but due to the limited test targets available to me, this is all that has been tested.
+There are a few newer commands and switches for these new routers.
+
+For the wgr614v8 and wgr614v9 there are:
+
+Board specific data “MAC address, etc”
+Ex. backup:wgrv8bdata /noreset /swap_endian
+EX. flash:wgrv8bdata /noreset
+
+Board specific data “Mac address, etc”
+Ex. backup:wgrv9bdata /noreset /swp_endian
+Ex. backup:wgrv9nvram /noreset
+
+
+ New for V2.1.3 - Added 4 new flash Chip parts to the list:
+		       - EON EN29LV320 2Mx16 BotB   (4MB)
+		       - EON EN29LV320 2Mx16 TopB   (4MB)
+		       - Winbond W19B320AB BotB     (4MB)
+		       - Winbond W19B320AT TopB     (4MB)
+		         Corrected definitions for SST flash chips 
+		         Corrected definitions for MX29LV320	
+		Added support for Atheros 531x/231x processors
+			Currently only WHR-HP-AG108 has been tested
+			/nodma must be used for this router and is Big Endian	
+		Added support for Linkstation 2 with RISC K4C chip
+			Needs testing 
+		Added support for Speedtouch 516v6, 546v6 and 585v6
+			Needs testing
+		Added new switch /ST5 for use with Speedtouch
+		Added two new Processors 
+			Broadcom BCM6338 Rev 1 CPU - Speedtouch
+			Linkstation 2 with RISC K4C chip
+              	Added  Winbond 3 Byte Device ID Detection
+                      		Contributed by kb1klk@aetheriatech.org
+		removed changelog.txt - replaced with changelog.doc		
+
+ New for v2.0 -Added 13 new Flash Chip Parts to the list:
+                     - Macronix MX25L160A         (2MB)
+                     - W19B(L)320ST   2Mx16 TopB  (4MB)
+                     - W19B(L)320SB   2Mx16 BotB  (4MB)
+                     - M29DW324DT 2Mx16 TopB      (4MB)
+                     - M29DW324DB 2Mx16 BotB      (4MB)
+                     - TC58FVM6T2A  4Mx16 TopB    (8MB)
+                     - TC58FVM6B2A  4Mx16 BopB    (8MB)
+                     - K8D6316UTM  4Mx16 TopB     (8MB)
+                     - K8D6316UBM  4Mx16 BotB     (8MB)
+                     - Spansion S29GL032M BotB    (4MB)
+                     - Spansion S29GL032M TopB    (4MB)
+                     - Spansion S29GL064M BotB    (8MB)
+                     - Spansion S29GL064M TopB    (8MB)
+                 Added 2 New Processors
+                     - Broadcom BCM4785 Rev 1 - WRT350N
+                     - TI TNETV1060GDW
+                 Added Spansion 3 Byte Device ID Workaround
+                       Spansion Flash & TI TNETV1060GDW CPU
+                       Contributed by kb1klk@aetheriatech.org
+		Added Wiggler.png
+		Added Changelog.txt, and removed from source.	
+
+
+
+
+	
+
+4.8.1 are Tornado mods 
+New for v4.8.1 -Added 2 new Flash Chip Parts to the list:
+                     - EN29LV160A  2Mx16 TopB     (2MB)
+                     - EN29LV160A  2Mx16 BotB     (2MB)
+                 Added 4 New Processors
+                     - BCM5453 Rev 1
+                     - BCM5453 Rev 2
+                     - BCM5365 Rev 1
+                     - BCM4704 Rev 9
+                 Added the following New Switch Options
+                     - /bypass .............Unlock Bypass
+                       for AMD/Spansion type Flash Chips
+                 Added /bsp option for use with flash, erase & backup
+Note:
+ My modifications - Thanks to HDM's great work
+ tornado@odessaua.com
+
+
+  New for v4.8 - Added 2 new Flash Chip Parts to the list:
+                     - SST39VF6401B 4Mx16 BotB     (8MB)
+                     - SST39VF6402B 4Mx16 TopB     (8MB)
+               - Added the following New Switch Options
+                     - /wiggler ........... use wiggler cable
+
+  New for v4.7 - Added 2 new Flash Chip Parts to the list:
+                     - K8D3216UTC  2Mx16 TopB     (4MB)
+                     - K8D3216UBC  2Mx16 BotB     (4MB)
+
+  New for v4.6 - Added Common Flash Chip Polling routine
+               - Added "-probeonly" parameter (good idea jmranger)
+               - Added Chip ID for Broadcom BCM4704 Rev 8 CPU
+               - Added TRST Signal Support for Wiggler Cables
+               - Added Chip ID for BRECIS MSP2007-CA-A1 CPU
+               - Added Experimental 1MB Flash Chip Offsets
+               - Added 2 new Flash Chip Parts to the list:
+                     - MX29LV800BTC 512kx16 TopB  (1MB)
+                     - MX29LV800BTC 512kx16 BotB  (1MB)
+
+  New for v4.5 - Added 2 new Flash Chip Parts to the list:
+                     - K8D1716UTC 1Mx16 TopB      (2MB)
+                     - K8D1716UBC 1Mx16 BotB      (2MB)
+
+  New for v4.4 - Added PrAcc routines to support additional MIPS chips
+                 without the ability to use EJTAG DMA Access
+               - Added Chip ID for Broadcom BCM5365 Rev 1 CPU
+               - Added Chip ID for Broadcom BCM6348 Rev 1 CPU (Big Endian)
+               - Added Chip ID for Broadcom BCM6345 Rev 1 CPU
+               - Added 6 new Flash Chip Parts to the list:
+                     - SST39VF1601 1Mx16 BotB     (2MB)
+                     - SST39VF1602 1Mx16 TopB     (2MB)
+                     - SST39VF3201 2Mx16 BotB     (4MB)
+                     - SST39VF3202 2Mx16 TopB     (4MB)
+                     - SST39VF6401 4Mx16 BotB     (8MB)
+                     - SST39VF6402 4Mx16 TopB     (8MB)
+               - Added the following New Switch Options
+                     - /noemw ............. prevent Enabling Memory Writes
+                     - /nocwd ............. prevent Clearing CPU Watchdog Timer
+                     - /dma ............... force use of DMA routines
+                     - /nodma ............. force use of PRACC routines (No DMA)
+                     - /window:XXXXXXXX ... custom flash window base (in HEX)
+                     - /start:XXXXXXXX .... custom start location (in HEX)
+                     - /length:XXXXXXXX ... custom length (in HEX)
+                     - /silent ............ prevent scrolling display of data
+                     - /skipdetect ........ skip auto detection of CPU Chip ID
+                     - /instrlen:XX ....... set instruction length manually
+               - Added elapsed time to Backup, Erase, and Flash routines
+               - Other minor miscellaneous changes/additions.
+
+  New for v4.3 - Corrected Macronix Flash Chip Block Definitions.
+               - Add 8 new Flash Chip Parts to the list:
+                     - AT49BV/LV16X 2Mx16 BotB    (4MB)
+                     - AT49BV/LV16XT 2Mx16 TopB   (4MB)
+                     - MBM29LV160B 1Mx16 BotB     (2MB)
+                     - MBM29LV160T 1Mx16 TopB     (2MB)
+                     - MX29LV161B 1Mx16 BotB      (2MB)
+                     - MX29LV161T 1Mx16 TopB      (2MB)
+                     - ST M29W160EB 1Mx16 BotB    (2MB)
+                     - ST M29W160ET 1Mx16 TopB    (2MB)
+
+  New for v4.2 - Changed the chip_detect routine to allow for easier
+                 additions of new chip id's.
+               - Added detection support for the Broadcom BCM5350 chip.
+               - Fixed DMA routines to check status bit that was
+                 removed in prior version.
+               - Removed clockout routine in an effort to speed up access.
+               - Changed clockin routine in an effort to speed up access.
+               - Changed ReadData and WriteData routines to merely call
+                 ReadWriteData routine.
+               - Removed Defines from .h file and placed flash areas in a
+                 structure list for easier maintenance should they change.
+               - Miscellaneous other minor changes.
+
+ **************************************************************************
+
+  tjtag : read/write flash memory via EJTAG
+   usage: tjtag [parameter] </noreset> </noemw> </nocwd> </nobreak> </noerase>
+                                         </notimestamp> </dma> </nodma>
+                             	     <start:XXXXXXXX> </length:XXXXXXXX>
+                                         </silent> </skipdetect> </instrlen:XX> </fc:XX> /bypass
+
+              Required Parameter
+              ------------------
+              -backup:cfe
+              -backup:nvram
+              -backup:kernel
+              -backup:wholeflash
+              -backup:custom
+              -backup:bsp
+              -erase:cfe
+              -erase:nvram
+              -erase:kernel
+              -erase:wholeflash
+              -erase:custom
+	  -erase:bsp
+              -flash:cfe
+              -flash:nvram
+              -flash:kernel
+              -flash:wholeflash
+              -flash:custom
+	   -flash:bsp
+              -probeonly
+
+              Optional Switches
+              -----------------
+              /noreset ...........      prevent Issuing EJTAG CPU reset
+              /noemw .............    prevent Enabling Memory Writes
+              /nocwd .............     prevent Clearing CPU Watchdog Timer
+              /nobreak ...........     prevent Issuing Debug Mode JTAGBRK
+              /noerase ...........      prevent Forced Erase before Flashing
+              /notimestamp ....... prevent Timestamping of Backups
+              /dma ...............       force use of DMA routines
+              /nodma .............     force use of PRACC routines (No DMA)
+              /start:XXXXXXXX ....   custom start location (in HEX)
+              /length:XXXXXXXX ... custom length (in HEX)
+              /silent ............      prevent scrolling display of data
+              /skipdetect ........   skip auto detection of CPU Chip ID
+              /instrlen:XX ....... set instruction length manually
+              /wiggler ........... use wiggler cable
+              /fc:XX = Optional (Manual) Flash Chip Selection
+              /bypass ............ Enables Unlock bypass / disables sflash poll
+                                         for AMD cmd type flash Chips
+
+ **************************************************************************
+  Written by HairyDairyMaid (a.k.a. - lightbulb)
+  hairydairymaid@yahoo.com
+ **************************************************************************
+
+  This program is copyright (C) 2004 HairyDairyMaid (a.k.a. Lightbulb)
+  This program is free software; you can redistribute it and/or modify it
+  under the terms of version 2 the GNU General Public License as published
+  by the Free Software Foundation.
+  This program is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+  more details.
+  To view a copy of the license go to:
+  http:www.fsf.org/copyleft/gpl.html
+  To receive a copy of the GNU General Public License write the Free Software
+  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+ **************************************************************************
+
