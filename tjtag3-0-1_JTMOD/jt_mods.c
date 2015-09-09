@@ -121,7 +121,7 @@ int jtMod_init(void)
         exit(42);
     }
 
-    printf("JTMOD: Opened port.\n");
+    printf("JTMOD: Opened port '%s'.\n", jt_portName);
 
     // Set up port settings.
     {
