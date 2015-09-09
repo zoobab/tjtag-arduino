@@ -16,3 +16,6 @@ I had fucked up the dd-wrt installation, forgetting to set nvram version to thre
 * Command: ```./tjtag -erase:nvram /wiggler /noreset``` 
 * Notes: It did not work without ``` /wiggle /noreset ```. Chip identification worked fine.
 
+### Links
+
+* See a similar project using UrJTAG (available for Linux, OSX, or Windows) and an Arduino: https://github.com/zoobab/urjtag_arduiggler
