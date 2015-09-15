@@ -20,3 +20,4 @@ I had fucked up the dd-wrt installation, forgetting to set nvram version to thre
 
 * See a similar project using UrJTAG (available for Linux, OSX, or Windows) and an Arduino: https://github.com/zoobab/urjtag_arduiggler
 * See also JTAGduino: https://github.com/balau/JTAGduino
+* See also FUJI: http://hsbp.org/fuji
