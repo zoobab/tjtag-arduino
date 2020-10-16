@@ -1,3 +1,4 @@
+[![noswpatv3](http://zoobab.wdfiles.com/local--files/start/noupcv3.jpg)](https://ffii.org/donate-now-to-save-europe-from-software-patents-says-ffii/)
 Source code and documentation for a version of tjtag that connects to a router's JTAG port through an Arduino board.
 
 Original source code was posted here:
